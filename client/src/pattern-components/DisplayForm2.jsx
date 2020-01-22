@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { TextInput, Form, Tile, Button } from "carbon-components-react";
-import Header from "./Header";
 import "./patterns.scss";
+
+
+const products = {"apple" : {name:"apple", desc:"red", comment:"i love apples"} }
 
 class DisplayForm2 extends Component {
   constructor(props) {
@@ -14,7 +16,9 @@ class DisplayForm2 extends Component {
     };
   }
 
-  saveForm() {}
+  saveForm() {
+      console.log(this.state)
+  }
 
   render() {
     return (
@@ -27,11 +31,14 @@ class DisplayForm2 extends Component {
                   <TextInput
                     id="itemName"
                     value={this.state.itemName}
+                    // value={'hello'}
                     labelText="Item Name:"
                     onChange={event => {
                       event.preventDefault();
                       // (event.target.value)
                       this.setState({ itemName: event.target.value });
+                    //   console.log('item name is :' + this.state.itemName)
+
                     }}
                   />
                 </div>
@@ -39,7 +46,7 @@ class DisplayForm2 extends Component {
                   <TextInput
                     id="itemSize"
                     value={this.state.itemSize}
-                    labelText="Item Size:"
+                    labelText="Item Description:"
                     onChange={event => {
                       event.preventDefault();
                       // (event.target.value)
@@ -51,7 +58,7 @@ class DisplayForm2 extends Component {
                   <TextInput
                     id="itemComment"
                     value={this.state.itemComment}
-                    labelText="Item Size:"
+                    labelText="Item COmment:"
                     onChange={event => {
                       event.preventDefault();
                       // (event.target.value)
@@ -60,7 +67,26 @@ class DisplayForm2 extends Component {
                   />
                 </div>
                 <div className="left-align">
-                  <Button onClick={this.saveForm}>Update</Button>
+                  <Button onClick={()=>{
+                      console.log(this.state)
+                      //   const products = {"apple" : {name:"apple", desc:"", comment:""} }
+                      if(!products[this.state.itemName]){
+                        products[this.state.itemName]= 
+                        {name:this.state.itemName, desc:this.state.itemSize, comment:this.state.itemComment}
+                        alert(`These are your products \n`, `open the console log`)
+                        console.log(products)
+                      this.setState({
+                        itemName: "",
+                        itemSize: "",
+                        itemComment: ""
+                      })
+                    }
+                    else{
+                        alert(`Item ${this.state.itemName} already exists!`)
+                    }
+                      
+                    }}>Update</Button>
+                  {/* <Button onClick={this.saveForm}>Update</Button> */}
                 </div>
               </Form>
             </Tile>

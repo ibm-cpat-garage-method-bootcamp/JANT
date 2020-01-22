@@ -6,14 +6,10 @@ import { product } from '../functionality/actions'
 class DisplayForm extends Component {
   constructor(props) {
     super(props);
-    const defaultData = [
-      { label: "Name", value: product.name, type: "textinput"},
-      { label: "Desc", value: product.desc, type: "textinput" },
-      { label: "Comment", value: product.comm, type: "textinput" },
-    ];
+    const defaultData = product;
     this.state = {
       data: props.data || defaultData,
-      showDescription: props.showDescription || false
+      
     };
   }
 
@@ -24,13 +20,9 @@ class DisplayForm extends Component {
 
   render() {
     const data = this.state.data;
-    const showDescription = this.state.showDescription;
-    const add = (data, name, des, com="") =>{
-      
-    }
     return (
       <div className="bx--grid">
-        {showDescription && (
+        { (
           <Header
             title="Display Form"
             subtitle="Displays a model object as a form in a read only display."
@@ -40,6 +32,7 @@ class DisplayForm extends Component {
           <div className="bx--col-xs-12">
             <Tile>
               <Form>
+                {/* {console.log(data)} */}
                 {data.map(item => {
                   if (item.type === "textinput") {
                     return (
@@ -47,16 +40,13 @@ class DisplayForm extends Component {
                         <TextInput
                           
                           id={item.label}
-                          value={this.state.data[0].value}
+                          value={data}
+                          // value = {'hello'}
                           labelText={
                             item.label.charAt(0).toUpperCase() +
                             item.label.slice(1).replace(/([A-Z])/g, " $1")
                           }
-                          onChange={(event) => {
-                            event.preventDefault();
-                            // (event.target.value)
-                            this.setState( {data[0].value : event.target.value} )
-                          }}
+                        }
                         />
                       </div>
                     );
@@ -77,6 +67,10 @@ class DisplayForm extends Component {
                     return <div />;
                   }
                 })}
+
+
+
+
               </Form>
             </Tile>
           </div>

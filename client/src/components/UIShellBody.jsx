@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SimpleList from "../pattern-components/SimpleList";
 import BasicPage from "../pattern-components/BasicPage";
-import DisplayForm from "../pattern-components/DisplayForm";
+import DisplayForm from "../pattern-components/DisplayForm2";
 import "../pattern-components/patterns.scss";
 
 class UIShellBody extends Component {
