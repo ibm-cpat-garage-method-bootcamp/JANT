@@ -8,7 +8,7 @@ class UIShellBody extends Component {
     "Simple List": SimpleList,
     "Basic Page": BasicPage
   };
-  defaultComponent = "Basic Page";
+  defaultComponent = "Simple List";
 
   render() {
     let curScreen = this.defaultComponent;
