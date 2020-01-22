@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import SimpleList from "../pattern-components/SimpleList";
 import BasicPage from "../pattern-components/BasicPage";
+import DisplayForm from "../pattern-components/DisplayForm";
 import "../pattern-components/patterns.scss";
 
 class UIShellBody extends Component {
   components = {
     "Simple List": SimpleList,
-    "Basic Page": BasicPage
+    "Basic Page": BasicPage,
+    "Display Form": DisplayForm,
   };
-  defaultComponent = "Simple List";
+  defaultComponent = "Display Form";
 
   render() {
     let curScreen = this.defaultComponent;
