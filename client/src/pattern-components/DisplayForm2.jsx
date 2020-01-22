@@ -46,7 +46,7 @@ class DisplayForm2 extends Component {
                   <TextInput
                     id="itemSize"
                     value={this.state.itemSize}
-                    labelText="Item Description:"
+                    labelText="Item Size:"
                     onChange={event => {
                       event.preventDefault();
                       // (event.target.value)
@@ -68,7 +68,7 @@ class DisplayForm2 extends Component {
                 </div>
                 <div className="left-align">
                   <Button onClick={()=>{
-                      console.log(this.state)
+                    //   console.log(this.state)
                       //   const products = {"apple" : {name:"apple", desc:"", comment:""} }
                       if(!products[this.state.itemName]){
                         products[this.state.itemName]= 
