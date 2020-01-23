@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { TextInput, Form, Tile, Button } from "carbon-components-react";
 import "./patterns.scss";
 
-
 let products = ''
 
 class DisplayForm2 extends Component {
@@ -25,7 +24,7 @@ class DisplayForm2 extends Component {
           <div className="bx--col-xs-12">
             <Tile>
               <Form>
-                <div className="display-form-item">
+                <div className="display-form-item"  data-testid="display-form-item">
                   <TextInput
                     id="itemName"
                     value={this.state.itemName}
@@ -35,12 +34,10 @@ class DisplayForm2 extends Component {
                       event.preventDefault();
                     
                       this.setState({ itemName: event.target.value });
-                 
-
                     }}
                   />
                 </div>
-                <div className="display-form-item">
+                <div className="display-form-item" >
                   <TextInput
                     id="itemSize"
                     value={this.state.itemSize}
@@ -52,7 +49,7 @@ class DisplayForm2 extends Component {
                     }}
                   />
                 </div>
-                <div className="display-form-item">
+                <div className="display-form-item" >
                   <TextInput
                     id="itemComment"
                     value={this.state.itemComment}
@@ -68,9 +65,7 @@ class DisplayForm2 extends Component {
                   <Button 
                   data-testid="update"
                     onClick={()=>{
-                    
                       products = this.props.productz
-                     
                       if(!products[this.state.itemName]){
                         products[this.state.itemName]= 
                         {name:this.state.itemName, desc:this.state.itemSize, comment:this.state.itemComment}
