@@ -10,14 +10,17 @@ class UIShellBody extends Component {
     "Basic Page": BasicPage,
     "Display Form": DisplayForm,
   };
-  defaultComponent = "Display Form";
+  defaultComponent = "Simple List";
 
+  productz = {"apple" : {name:"apple", desc:"30", comment:"i love apples"} }
+
+  
   render() {
-    let curScreen = this.defaultComponent;
-    const PatternName = this.components[curScreen];
+
+    const PatternName = this.components[this.props.patternName];
     return (
       <div className="pattern-container">
-        <PatternName showDescription={true} />
+        <PatternName productz={this.productz} boolChanger = {this.boolChanger} showDescription={true} />   
       </div>
     );
   }
