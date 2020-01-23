@@ -1,9 +1,9 @@
 import React from "react";
-import { render, cleanup, fireEvent, waitForElement } from "@testing-library/react";
+import { render, cleanup, fireEvent } from "@testing-library/react";
 
 //documentation for UI Stuff
 import DisplayForm2 from "../pattern-components/DisplayForm2.jsx";
-import SimpleList from "../pattern-components/SearchList.jsx";
+import SimpleList from "../pattern-components/SimpleList.jsx";
 import '@testing-library/jest-dom';
 
 
@@ -21,14 +21,38 @@ test("Update Button exists in the DOM", () => {
   const { getByTestId } = render(<DisplayForm2 />);
   const button = getByTestId("update");
   //it's in the DOM
-  expect(button).toBeInTheDOM();
-  
+  expect(button).toBeInTheDOM(); 
 });
 
-test("Testing if value of row is row-0", ()=>{
-  const { getByTestId } = render(<SimpleList />);
-  const listRow = getByTestId("simple-list-row")
+test("input values inside form for ItemName", () => {
+  const { getByTestId } = render(<DisplayForm2 />);
+  let val = getByTestId("item-Name");
+  expect(val.value).toBe("")
+  fireEvent.change(val, {target: {value: "bread"}})
+  expect(val.value).toBe("bread")
 })
+
+test("testing size", () => {
+  const {getByTestId} = render (<DisplayForm2/>);
+  let size = getByTestId("item-Size");
+
+  expect(size.value).toBe("")
+  fireEvent.change(size, {target:{value:"30"}})
+  expect(size.value).toBe("30")
+})
+
+
+//  this breaks our test because props has not been passed
+// down and one of our functions runs object.keys onto
+// one of the props
+
+// test("Testing if listRow exists", ()=>{
+//   const { getByTestId } = render(<SimpleList />);
+//   const listRow = getByTestId("list-row")
+//   expect(listRow).toBeInTheDOM();
+// })
+
+
 
 // test("the column count field is numeric only", () => {
 //   const { getByTestId } = render(<DisplayForm2 />);

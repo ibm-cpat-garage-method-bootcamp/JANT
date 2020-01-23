@@ -30,6 +30,7 @@ class SimpleList extends Component {
         <div>
           <StructuredListInput
             id={`row-${id}`}
+            data-testid="list-row"
             value="row-0"
             title="row-0"
             name="row-0"
@@ -54,7 +55,7 @@ class SimpleList extends Component {
   render() {
     const productNames = []
     const productSizes = []
-    for (let i = 0; i<Object.keys(this.props.productz).length; i++) {
+    for (let i = 0; i< Object.keys(this.props.productz).length; i++) {
       productNames.push('Product Name: ' + Object.keys(this.props.productz)[i])
     }
     for (let i = 0; i<Object.keys(this.props.productz).length; i++) {
