@@ -27,8 +27,8 @@ class DisplayForm2 extends Component {
                 <div className="display-form-item"  data-testid="display-form-item">
                   <TextInput
                     id="itemName"
+                    data-testid="item-Name"
                     value={this.state.itemName}
-                  
                     labelText="Item Name:"
                     onChange={event => {
                       event.preventDefault();
@@ -40,6 +40,7 @@ class DisplayForm2 extends Component {
                 <div className="display-form-item" >
                   <TextInput
                     id="itemSize"
+                    data-testid='item-Size'
                     value={this.state.itemSize}
                     labelText="Item Description:"
                     onChange={event => {
