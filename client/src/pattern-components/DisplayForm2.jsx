@@ -16,9 +16,7 @@ class DisplayForm2 extends Component {
     };
   }
 
-  saveForm() {
-      console.log(this.state)
-  }
+ 
 
   render() {
     return (
@@ -46,7 +44,7 @@ class DisplayForm2 extends Component {
                   <TextInput
                     id="itemSize"
                     value={this.state.itemSize}
-                    labelText="Item Size:"
+                    labelText="Item Description:"
                     onChange={event => {
                       event.preventDefault();
                       // (event.target.value)
@@ -67,8 +65,10 @@ class DisplayForm2 extends Component {
                   />
                 </div>
                 <div className="left-align">
-                  <Button onClick={()=>{
-                    //   console.log(this.state)
+                  <Button 
+                  data-testid="update"
+                    onClick={()=>{
+                      console.log(this.state)
                       //   const products = {"apple" : {name:"apple", desc:"", comment:""} }
                       if(!products[this.state.itemName]){
                         products[this.state.itemName]= 
@@ -80,12 +80,15 @@ class DisplayForm2 extends Component {
                         itemSize: "",
                         itemComment: ""
                       })
+                      
                     }
                     else{
                         alert(`Item ${this.state.itemName} already exists!`)
                     }
-                      
+                    
+                    
                     }}>Update</Button>
+                    
                   {/* <Button onClick={this.saveForm}>Update</Button> */}
                 </div>
               </Form>
