@@ -1,8 +1,13 @@
 import React from "react";
-import { render, cleanup } from "@testing-library/react";
+import { render, cleanup, fireEvent, waitForElement } from "@testing-library/react";
+
+//documentation for UI Stuff
 import DisplayForm2 from "../pattern-components/DisplayForm2.jsx";
+import SimpleList from "../pattern-components/SearchList.jsx";
 import '@testing-library/jest-dom';
-afterEach(cleanup);
+
+
+afterEach(cleanup)
 
 test("text area exists (canary)", () => {
   const { getByTestId } = render(<DisplayForm2 />);
@@ -12,11 +17,18 @@ test("text area exists (canary)", () => {
 
 /* Could also include tests for other elements */
 
-// test("the default column count should be 30", () => {
-//   const { getByTestId } = render(<DisplayForm2 />);
-//   const colCount = getByTestId("column-count");
-//   expect(colCount.value).toBe("30");
-// });
+test("Update Button exists in the DOM", () => {
+  const { getByTestId } = render(<DisplayForm2 />);
+  const button = getByTestId("update");
+  //it's in the DOM
+  expect(button).toBeInTheDOM();
+  
+});
+
+test("Testing if value of row is row-0", ()=>{
+  const { getByTestId } = render(<SimpleList />);
+  const listRow = getByTestId("simple-list-row")
+})
 
 // test("the column count field is numeric only", () => {
 //   const { getByTestId } = render(<DisplayForm2 />);
