@@ -42,7 +42,7 @@ class DisplayForm2 extends Component {
                     id="itemSize"
                     data-testid='item-Size'
                     value={this.state.itemSize}
-                    labelText="Item Description:"
+                    labelText="Item Size:"
                     onChange={event => {
                       event.preventDefault();
                       // (event.target.value)
@@ -69,13 +69,13 @@ class DisplayForm2 extends Component {
                       products = this.props.productz
                       if(!products[this.state.itemName]){
                         products[this.state.itemName]= 
-                        {name:this.state.itemName, desc:this.state.itemSize, comment:this.state.itemComment}
+                        {name:this.state.itemName, desc:this.state.itemSize, comment:this.state.itemComment, out:false}
                       this.setState({
                         itemName: "",
                         itemSize: "",
                         itemComment: ""
                       })
-                      
+                      console.log(products)
                     }
                     else{
                         alert(`Item ${this.state.itemName} already exists!`)

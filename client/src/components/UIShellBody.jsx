@@ -12,7 +12,7 @@ class UIShellBody extends Component {
   };
   defaultComponent = "Simple List";
 
-  productz = {"apple" : {name:"apple", desc:"30", comment:"i love apples"} }
+  productz = {"apple" : {name:"apple", desc:"30", comment:"i love apples", out:true} }
 
   
   render() {
