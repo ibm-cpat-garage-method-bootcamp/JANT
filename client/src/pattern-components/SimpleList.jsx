@@ -66,7 +66,7 @@ class SimpleList extends Component {
                 <StructuredListRow head>
                   <StructuredListCell head />
                   <StructuredListCell head>
-                    Simple List Title fsjalfsjalk
+                    Simple List Title 
                   </StructuredListCell>
                 </StructuredListRow>
               </StructuredListHead>
