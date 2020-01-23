@@ -52,11 +52,19 @@ class SimpleList extends Component {
   };
 
   render() {
-    const data = []
-    
+    const productNames = []
+    const productSizes = []
     for (let i = 0; i<Object.keys(this.props.productz).length; i++) {
-      data.push('Product Name: ' + Object.keys(this.props.productz)[i] + ' |       Size: '+ Object.values(this.props.productz)[i]["desc"])
+      productNames.push('Product Name: ' + Object.keys(this.props.productz)[i])
     }
+    for (let i = 0; i<Object.keys(this.props.productz).length; i++) {
+      productSizes.push('Size: '+ Object.values(this.props.productz)[i]["desc"])
+    }
+    // const data = []
+    
+    // for (let i = 0; i<Object.keys(this.props.productz).length; i++) {
+    //   data.push('Product Name: ' + Object.keys(this.props.productz)[i] + ' |       Size: '+ Object.values(this.props.productz)[i]["desc"])
+    // }
     return (
       <div className="bx--grid pattern-container">
         <Header
@@ -76,9 +84,17 @@ class SimpleList extends Component {
               </StructuredListHead>
 
               <StructuredListBody>
-                {data.map((row, i) => {
+              <StructuredListCell >
+              {productNames.map((row, i) => {
                   return this.renderRow(row, i);
                 })}
+                  </StructuredListCell>
+                  <StructuredListCell >
+              {productSizes.map((row, i) => {
+                  return this.renderRow(row, i);
+                })}
+                  </StructuredListCell>
+             
               </StructuredListBody>
             </StructuredListWrapper>
           </div>
