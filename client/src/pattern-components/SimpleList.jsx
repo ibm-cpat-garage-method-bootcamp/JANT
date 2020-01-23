@@ -55,14 +55,17 @@ class SimpleList extends Component {
   render() {
     const productNames = []
     const productSizes = []
-    for (let i = 0; i< Object.keys(this.props.productz).length; i++) {
+    const DNE = []
+
+    for (let i = 0; i < Object.keys(this.props.productz).length; i++) {
       productNames.push('Product Name: ' + Object.keys(this.props.productz)[i])
+      productSizes.push('Size: ' + Object.values(this.props.productz)[i]["desc"])
+      if (Object.values(this.props.productz)[i]["out"]) DNE.push('Out Stock')
+      else DNE.push('In Stock')
     }
-    for (let i = 0; i<Object.keys(this.props.productz).length; i++) {
-      productSizes.push('Size: '+ Object.values(this.props.productz)[i]["desc"])
-    }
+
     // const data = []
-    
+
     // for (let i = 0; i<Object.keys(this.props.productz).length; i++) {
     //   data.push('Product Name: ' + Object.keys(this.props.productz)[i] + ' |       Size: '+ Object.values(this.props.productz)[i]["desc"])
     // }
@@ -85,17 +88,43 @@ class SimpleList extends Component {
               </StructuredListHead>
 
               <StructuredListBody>
-              <StructuredListCell >
-              {productNames.map((row, i) => {
-                  return this.renderRow(row, i);
-                })}
-                  </StructuredListCell>
-                  <StructuredListCell >
-              {productSizes.map((row, i) => {
-                  return this.renderRow(row, i);
-                })}
-                  </StructuredListCell>
-             
+                {/* Product Name Cell */}
+                <StructuredListCell >
+                  {productNames.map((row, i) => {
+                    return this.renderRow(row, i);
+                  })}
+                </StructuredListCell>
+                {/* Product Size Cell */}
+                <StructuredListCell >
+                  {productSizes.map((row, i) => {
+                    return this.renderRow(row, i);
+                  })}
+                </StructuredListCell>
+
+                <StructuredListCell >
+                  
+                  
+                    
+                  {DNE.map((row, i) => {
+                    
+                    return (
+                      // <button>test </button>
+                      <button onClick={()=>{
+                        // if(DNE[i]) this.props.productz[i][row]
+                        console.log('ProductNames: ' + productNames[0]) 
+                        const name = productNames[0]
+                        console.log('NAMEEE', name)
+                        // let prod = productNames[i]
+                        console.log("Props productz : ", this.props.productz[`${productNames[0]}`])
+                        console.log("row", i)
+                      }}>
+                        {this.renderRow(row, i)}
+                        </button>
+                      );
+                    })}
+                    
+                </StructuredListCell>
+
               </StructuredListBody>
             </StructuredListWrapper>
           </div>
