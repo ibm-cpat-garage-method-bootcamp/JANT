@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { TextInput, Form, Tile, Button } from "carbon-components-react";
 import "./patterns.scss";
 
-
-const products = {"apple" : {name:"apple", desc:"red", comment:"i love apples"} }
-
+// let products = {"apple" : {name:"apple", desc:"30", comment:"i love apples"} };
+let products = ''
+// const products = {"apple" : {name:"apple", desc:"30", comment:"i love apples"} }
 class DisplayForm2 extends Component {
   constructor(props) {
-    // We should probably pass in the data store as a property
     super(props);
+    console.log(JSON.stringify(props.productz));
     this.state = {
       itemName: "",
       itemSize: "",
@@ -56,7 +56,7 @@ class DisplayForm2 extends Component {
                   <TextInput
                     id="itemComment"
                     value={this.state.itemComment}
-                    labelText="Item COmment:"
+                    labelText="Item Comment:"
                     onChange={event => {
                       event.preventDefault();
                       // (event.target.value)
@@ -70,11 +70,12 @@ class DisplayForm2 extends Component {
                     onClick={()=>{
                       console.log(this.state)
                       //   const products = {"apple" : {name:"apple", desc:"", comment:""} }
+                      products = this.props.productz
+                      console.log("this is producz ,", this.props.productz)
+                      console.log("this products: ", products)
                       if(!products[this.state.itemName]){
                         products[this.state.itemName]= 
                         {name:this.state.itemName, desc:this.state.itemSize, comment:this.state.itemComment}
-                        alert(`These are your products \n`, `open the console log`)
-                        console.log(products)
                       this.setState({
                         itemName: "",
                         itemSize: "",
@@ -85,12 +86,19 @@ class DisplayForm2 extends Component {
                     else{
                         alert(`Item ${this.state.itemName} already exists!`)
                     }
+<<<<<<< HEAD
                     
                     
                     }}>Update</Button>
                     
                   {/* <Button onClick={this.saveForm}>Update</Button> */}
                 </div>
+=======
+                    }}>Update</Button>
+                </div>  
+                {/* <Button onClick={this.props.boolChanger }> updator </Button> */}
+                  {Object.keys(products).map((product, i)=> <div key = {i} >ProductName: {product} || Size: {products[product].desc}</div>)}         
+>>>>>>> 51181e96c7becb8dd3aa76c2f3caf66c36c55e6c
               </Form>
             </Tile>
           </div>

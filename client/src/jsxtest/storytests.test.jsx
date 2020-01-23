@@ -1,12 +1,12 @@
 import React from "react";
-import { render, fireEvent, cleanup } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 import DisplayForm2 from "../pattern-components/DisplayForm2.jsx";
 import '@testing-library/jest-dom';
 afterEach(cleanup);
 
 test("text area exists (canary)", () => {
   const { getByTestId } = render(<DisplayForm2 />);
-  const taElement = getByTestId("input-text-area");
+  const taElement = getByTestId("display-form-item");
   expect(taElement).toBeInTheDocument();
 });
 
