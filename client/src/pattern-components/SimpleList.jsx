@@ -52,7 +52,11 @@ class SimpleList extends Component {
   };
 
   render() {
-    const data = ["Banana", "Apple", "Orange", "Chicken"];
+    const data = []
+    
+    for (let i = 0; i<Object.keys(this.props.productz).length; i++) {
+      data.push('Product Name: ' + Object.keys(this.props.productz)[i] + ' |       Size: '+ Object.values(this.props.productz)[i]["desc"])
+    }
     return (
       <div className="bx--grid pattern-container">
         <Header
@@ -66,7 +70,7 @@ class SimpleList extends Component {
                 <StructuredListRow head>
                   <StructuredListCell head />
                   <StructuredListCell head>
-                    Simple List Title fsjalfsjalk
+                    Product List
                   </StructuredListCell>
                 </StructuredListRow>
               </StructuredListHead>
